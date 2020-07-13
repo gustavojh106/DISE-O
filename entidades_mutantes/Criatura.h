@@ -5,8 +5,8 @@
 #include <utility>
 #include <vector>
 using namespace std;
-
-#include "Valor.h"
+#include <iostream>
+//#include "Valor.h"
 #include "Entero.h"
 #include "Doble.h"
 
@@ -17,7 +17,8 @@ public:
 	Criatura(int edad, double energia);
 	~Criatura();
 
-	static string nombre();
+	string nombreCriatura();
+	void printNombre();
 
 	/* OBTENEDORES CONVENCIONALES */
 	int obtEdad() const;
@@ -30,12 +31,16 @@ public:
 	/* VECTOR DE ATRIBUTOS */
 	void obtAtributos(vector< pair< string, Valor* > >& vectorValores);
 
+protected:
+		string nombre;
+	
 private:
 	typedef unordered_map< string, Valor* > t_map_atributos;
 	typedef unordered_map< string, Valor* >::const_iterator t_atributos_const_iterador;
 
 	t_map_atributos atributos;
 	vector< Valor* > vectorValores;
+	
 };
 
 // inicializa atributos con la cantidad exacta requerida de cubetas, una por cada atributo
@@ -45,6 +50,14 @@ Criatura::Criatura() : atributos(2)
 	Doble* venergia_p = new Doble(5.5);
 	atributos["edad"] = vedad_p;
 	atributos["energia"] = venergia_p;
+}
+
+string Criatura::nombreCriatura(){
+	return "Criatura";
+}
+
+void Criatura::printNombre(){	
+	cout<<this->nombre;
 }
 
 // inicializa atributos con la cantidad exacta requerida de cubetas, una por cada atributo
@@ -62,10 +75,6 @@ Criatura::~Criatura()
 		a.second->~Valor(); // enlace dinámico de destructores!!!
 }
 
-string Criatura::nombre()
-{
-	return "Criatura";
-}
 
 int Criatura::obtEdad() const
 {
