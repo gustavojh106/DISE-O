@@ -1,3 +1,4 @@
+#pragma once
 #include "Criatura.h"
 
 class Abeja : public Criatura{

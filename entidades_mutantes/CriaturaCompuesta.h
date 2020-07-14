@@ -1,10 +1,11 @@
+#pragma once
 #include <vector>
 #include "Criatura.h"
 class CriaturaCompuesta : public Criatura{
 public:
 	CriaturaCompuesta();
 	~CriaturaCompuesta();
-	agregarCriatura(Criatura*);
+	void agregarCriatura(Criatura*);
 	
 private:
 	vector<Criatura *> criaturas;
@@ -15,7 +16,7 @@ CriaturaCompuesta::CriaturaCompuesta(){
 	this->nombre = nombreCriatura()+" CriaturaCompuesta";
 }
 
-CriaturaCompuesta::agregarCriatura(Criatura* c){
-	
+void CriaturaCompuesta::agregarCriatura(Criatura* c){
+	cout<<"CRIATURA COMPUESTA AHORA TAMBIEN ESTA COMPUESTA POR UNA: "<<c->getNombre()<<endl;
 	criaturas.push_back(c);
 }

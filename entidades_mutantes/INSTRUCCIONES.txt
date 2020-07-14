@@ -1,0 +1,17 @@
+Gustavo Jimenez Hernandez - B84060
+Nicole Castillo Arguedas - B71755
+
+
+INSTRUCCIONES PARA COMPILAR Y EJECUTAR EL PROGRAMA:
+
+Abrir una terminal dentro de esta carpeta.
+
+	PARA COMPILAR:
+
+		g++ -o prueba EXAMEN.cpp
+
+
+	PARA CORRER EL PROGRAMA:
+
+		windows: prueba
+		linux: ./prueba
